@@ -1,0 +1,37 @@
+body {
+  background: rgb(13, 110, 253);
+  background: linear-gradient(183deg, rgba(13, 110, 253, 1) 0%, rgba(255, 243, 0, 1) 100%);
+  height: 100vh;
+}
+
+.navbar {
+  .navbar-brand {
+    font-size: 28px;
+  }
+
+  li {
+    margin-left: 20px;
+
+    a {
+      font-size: 18px;
+    }
+  }
+
+  .dropdown-menu li {
+    margin: 0;
+  }
+}
+
+@media (max-width: 750px) {
+  body {
+    height: 100%;
+  }
+
+  .navbar li {
+    margin-left: 0;
+
+    a {
+      font-size: unset;
+    }
+  }
+}

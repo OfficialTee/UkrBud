@@ -1,0 +1,33 @@
+body {
+  background: #0d6efd;
+  background: linear-gradient(183deg, #0d6efd 0%, #fff300 100%);
+  height: 100vh;
+}
+
+.navbar .navbar-brand {
+  font-size: 28px;
+}
+.navbar li {
+  margin-left: 20px;
+}
+.navbar li a {
+  font-size: 18px;
+}
+.navbar .dropdown-menu li {
+  margin: 0;
+}
+
+@media (max-width: 750px) {
+  body {
+    height: 100%;
+  }
+
+  .navbar li {
+    margin-left: 0;
+  }
+  .navbar li a {
+    font-size: unset;
+  }
+}
+
+/*# sourceMappingURL=general.css.map */

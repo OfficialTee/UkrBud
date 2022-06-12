@@ -1,0 +1,26 @@
+.main {
+  margin-top: 100px;
+  color: white;
+}
+
+.map-container {
+  position: relative;
+  height: 50vh;
+}
+.map-container iframe {
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+}
+
+a {
+  color: #011627;
+}
+
+.contacts, form {
+  color: #011627;
+}
+
+/*# sourceMappingURL=contacts.css.map */
