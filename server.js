@@ -85,6 +85,28 @@ server.post("/flats", (req, res) => {
     });
 });
 
+//Detailed flat page
+server.get("/flat/:flat", function (req, res) {
+    let flat = req.params.flat;
+    flats.find(ObjectId(flat)).toArray((error, result) => {
+        res.render("flat", {flat: result});
+    });
+});
+
+//Send request
+server.post("/request", (req, res) => {
+    requests.insertOne(
+        {
+            name: req.body.InputName,
+            tel: req.body.InputTel,
+            email: req.body.InputEmail,
+            message: req.body.InputText,
+            object: req.body.Id ? req.body.Id : ""
+        }
+    );
+    res.redirect("/");
+});
+
 //Reformatting Flats form to Mongo Query
 function filterObject(filters) {
     let query = '{"$and": [';
