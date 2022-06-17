@@ -30,20 +30,20 @@
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav">
                         <li class="nav-item">
-                            <a class="nav-link" href="/flats">Квартири</a>
+                            <a class="nav-link" href="/flats"><%= lang.navFlats %></a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="/contacts">Контакти</a>
+                            <a class="nav-link" href="/contacts"><%= lang.navContacts %></a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="/about">Про нас</a>
+                            <a class="nav-link" href="/about"><%= lang.navAbout %></a>
                         </li>
                         <li class="nav-item">
                             <div class="dropdown">
                                 <button class="btn btn-outline-warning dropdown-toggle"
                                         type="button" id="dropdownMenuButton" data-bs-toggle="dropdown"
                                         aria-expanded="false">
-                                    Мова
+                                    <%= lang.navLang %>
                                 </button>
                                 <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                                     <li>
@@ -54,9 +54,6 @@
                                         <a class="dropdown-item" style="color: #011627" href="/lang?url=&lang=ua">UA</a>
                                     </li>
                                     <li>
-                                        <a class="dropdown-item" style="color: #011627"
-                                           href="/lang?url=&lang=rus">RUS</a>
-                                    </li>
                                 </ul>
                             </div>
                         </li>
@@ -68,9 +65,7 @@
     <div class="row main">
         <div class="col-10 offset-1 main-name">UkrBud</div>
         <div class="col-10 offset-1 main-text">
-            Наш ЖК є футуристичним комлексом комфорт-класу з сучасними плануваннями, високою якістю будівництва та
-            розвиненою інфраструктурою у самому центрі Києва. Він створений не тільки для втілення всіх ваших запитів
-            щодо якості житла, але й для задоволення від нових технологій комфорту!
+            <%= lang.homeText %>
         </div>
     </div>
 </div>

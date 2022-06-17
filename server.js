@@ -29,19 +29,26 @@ mongoClient.connect((error, client) => {
     requests = db.collection("requests");
 });
 
+//Language patterns
+const engLang = require("./langs/eng.json");
+const uaLang = require("./langs/ua.json");
+
+//Website language
+let WebsiteLang = "eng";
+
 //Home page
 server.get("/", (req, res) => {
-    res.render("home");
+    res.render("home", {lang: language(WebsiteLang)});
 });
 
 //About page
 server.get("/about", (req, res) => {
-    res.render("about");
+    res.render("about", {lang: language(WebsiteLang)});
 });
 
-//Contacts page
+//About page
 server.get("/contacts", (req, res) => {
-    res.render("contacts");
+    res.render("contacts", {lang: language(WebsiteLang)});
 });
 
 //Flats page
@@ -53,7 +60,8 @@ server.get("/flats", (req, res) => {
             statuses: await flats.distinct("status"),
             rooms: await flats.distinct("rooms"),
             sections: await flats.distinct("section"),
-            buildings: await flats.distinct("building")
+            buildings: await flats.distinct("building"),
+            lang: language(WebsiteLang)
         });
     });
 });
@@ -80,7 +88,8 @@ server.post("/flats", (req, res) => {
             statuses: await flats.distinct("status"),
             rooms: await flats.distinct("rooms"),
             sections: await flats.distinct("section"),
-            buildings: await flats.distinct("building")
+            buildings: await flats.distinct("building"),
+            lang: language(WebsiteLang)
         });
     });
 });
@@ -89,9 +98,29 @@ server.post("/flats", (req, res) => {
 server.get("/flat/:flat", function (req, res) {
     let flat = req.params.flat;
     flats.find(ObjectId(flat)).toArray((error, result) => {
-        res.render("flat", {flat: result});
+        res.render("flat", {flat: result, lang: language(WebsiteLang)});
     });
 });
+
+
+//Change language
+server.get("/lang", function (req, res) {
+    let lang = req.query;
+    WebsiteLang = lang.lang;
+    res.redirect(`/${lang.url}`)
+});
+
+function language(lang) {
+    let langJson;
+    if (lang === "eng") {
+        langJson = engLang;
+    } else if (lang === "ua") {
+        langJson = uaLang;
+    } else if (lang === "rus") {
+        langJson = rusLang;
+    }
+    return langJson;
+}
 
 //Send request
 server.post("/request", (req, res) => {
